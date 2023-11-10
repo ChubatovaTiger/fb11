@@ -26,7 +26,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2023.05"
 
 project {
-
+    vcsRoot(root2)
     buildType(Build1)
 }
 
@@ -35,6 +35,7 @@ object Build1 : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+        root(root2)
     }
 
     steps {
@@ -43,4 +44,11 @@ object Build1 : BuildType({
             scriptContent = "ls"
         }
     }
+})
+
+
+object root2 : GitVcsRoot({
+    name = "root2"
+    url = "https://github.com/ChubatovaTiger/ChubatovaGradleTestsBackup"
+    branch = "refs/heads/master"
 })
